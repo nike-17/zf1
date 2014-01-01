@@ -3544,6 +3544,17 @@ class Zend_DateTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * @group GH-257
+     */
+    public function testCompareDateWithSameValues()
+    {
+        $date1 = new Zend_Date('12302013', 'MMddyyyy');
+        $date2 = new Zend_Date('12302013', 'MMddyyyy');
+
+        $this->assertSame(0, $date1->compareDate($date2));
+    }
+
+    /**
      * Test for getIso
      */
     public function testGetIso()
